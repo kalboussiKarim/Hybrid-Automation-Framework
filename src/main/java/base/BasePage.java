@@ -7,31 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
 
-    public static WebDriver driver;
+    protected WebDriver driver;
 
-    public void setDriver(WebDriver driver){
-        BasePage.driver = driver;
-    }
-
-    protected WebElement find(By locator){
-        return driver.findElement(locator);
-    }
-
-    protected void set (By locator, String text){
-        find(locator).clear();
-        find(locator).sendKeys(text);
-    }
-
-    protected void click(By locator){
-        find(locator).click();
-    }
-
-    public static void delay(int milliseconds){
-        try {
-            Thread.sleep(milliseconds);
-        }catch (InterruptedException exc){
-            exc.printStackTrace();
-        }
+    public BasePage(WebDriver driver){
+        this.driver =driver;
+        PageFactory.initElements(driver,this);
     }
 
 }

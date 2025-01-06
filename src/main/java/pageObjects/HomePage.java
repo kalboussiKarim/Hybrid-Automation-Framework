@@ -8,18 +8,21 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
 
-    private final By myAccountNavItem = By.xpath("//span[normalize-space()='My Account']");
-    private final By registerChoiceAccountNavItem = By.xpath("//a[normalize-space()='Register']");
+    public HomePage(WebDriver driver){
+        super(driver);
+    }
+
+    @FindBy(xpath = "//span[normalize-space()='My Account']")
+    WebElement lnkMyAccount;
+
+    @FindBy(xpath = "//a[normalize-space()='Register']")
+    WebElement lnkRegister;
 
     public void clickMyAccountNavItem(){
-        find(myAccountNavItem).click();
+        lnkMyAccount.click();
     }
 
     public void clickRegister(){
-        find(registerChoiceAccountNavItem).click();
+        lnkRegister.click();
     }
-
-
-
-
 }
