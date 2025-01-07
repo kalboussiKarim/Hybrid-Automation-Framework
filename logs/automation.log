@@ -1,17 +1,10 @@
-01:00:57.160 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+01:26:51.517 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\kalbo\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml"
+01:26:51.726 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
   C:\Users\kalbo\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
 
-01:00:59.387 [main] INFO  testCases.TC001AccountRegistrationTest - ******** Starting TC001AccountRegistrationTest ********
-01:00:59.595 [main] INFO  testCases.TC001AccountRegistrationTest - Clicked on MyAccount Link
-01:00:59.889 [main] INFO  testCases.TC001AccountRegistrationTest - Clicked on Register Link
-01:00:59.891 [main] INFO  testCases.TC001AccountRegistrationTest - Providing customer details...
-01:01:00.541 [main] INFO  testCases.TC001AccountRegistrationTest - Validating expected message...
-01:01:57.781 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
-  C:\Users\kalbo\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
-
-01:02:00.246 [main] INFO  testCases.TC001AccountRegistrationTest - ******** Starting TC001AccountRegistrationTest ********
-01:02:00.369 [main] INFO  testCases.TC001AccountRegistrationTest - Clicked on MyAccount Link
-01:02:00.660 [main] INFO  testCases.TC001AccountRegistrationTest - Clicked on Register Link
-01:02:00.663 [main] INFO  testCases.TC001AccountRegistrationTest - Providing customer details...
-01:02:01.348 [main] INFO  testCases.TC001AccountRegistrationTest - Validating expected message...
-01:02:01.351 [main] INFO  testCases.TC001AccountRegistrationTest - ******** Finished TC001AccountRegistrationTest ********
+01:26:54.573 [main] INFO  testCases.TC001AccountRegistrationTest - ******** Starting TC001AccountRegistrationTest ********
+01:26:54.667 [main] INFO  testCases.TC001AccountRegistrationTest - Clicked on MyAccount Link
+01:26:55.087 [main] INFO  testCases.TC001AccountRegistrationTest - Clicked on Register Link
+01:26:55.090 [main] INFO  testCases.TC001AccountRegistrationTest - Providing customer details...
+01:26:55.755 [main] INFO  testCases.TC001AccountRegistrationTest - Validating expected message...
+01:26:55.758 [main] INFO  testCases.TC001AccountRegistrationTest - ******** Finished TC001AccountRegistrationTest ********

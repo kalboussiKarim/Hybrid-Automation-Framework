@@ -34,8 +34,6 @@ public class TC001AccountRegistrationTest extends BaseTest {
             logger.info("Validating expected message...");
             Assert.assertEquals(expectedMessage,actualMessage);
         }catch (Exception e){
-            logger.error("Test Failed...");
-            logger.debug("Debug logs...");
             Assert.fail();
         }
         logger.info("******** Finished TC001AccountRegistrationTest ********");
