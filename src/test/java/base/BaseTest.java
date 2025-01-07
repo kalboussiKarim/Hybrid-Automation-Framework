@@ -24,7 +24,7 @@ public class BaseTest {
     public Properties properties;
 
 
-    @BeforeClass
+    @BeforeClass(groups={"Sanity","Regression","Datadriven","Master"})
     @Parameters({"os","browser"})
     public void setUp(String os, String browser) throws IOException {
         //Loading config.properties file
@@ -48,7 +48,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
-    @AfterClass
+    @AfterClass(groups={"Sanity","Regression","Datadriven","Master"})
     public void tearDown(){
         driver.quit();
     }

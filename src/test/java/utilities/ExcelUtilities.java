@@ -16,8 +16,8 @@ import java.io.IOException;
 public class ExcelUtilities {
     public static FileInputStream fi;
     public static FileOutputStream fo;
-    public static XSSFWorkbook wb;
-    public static XSSFSheet ws;
+    public static XSSFWorkbook workbook;
+    public static XSSFSheet sheet;
     public static XSSFRow row;
     public static XSSFCell cell;
     public static CellStyle style;
@@ -33,19 +33,19 @@ public class ExcelUtilities {
 
         try {
             fi = new FileInputStream(path);
-            wb = new XSSFWorkbook(fi);
-            ws = wb.getSheet(xlSheet);
-            if (ws == null) {
+            workbook = new XSSFWorkbook(fi);
+            sheet = workbook.getSheet(xlSheet);
+            if (sheet == null) {
                 System.err.println("Sheet \"" + xlSheet + "\" not found.");
                 return -1;
             }
-            return ws.getLastRowNum();
+            return sheet.getLastRowNum();
 
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
         }finally {
-            wb.close();
+            workbook.close();
             fi.close();
         }
 
@@ -55,20 +55,20 @@ public class ExcelUtilities {
 
         try {
             fi = new FileInputStream(path);
-            wb = new XSSFWorkbook(fi);
-            ws = wb.getSheet(xlSheet);
-            if (ws == null) {
+            workbook = new XSSFWorkbook(fi);
+            sheet = workbook.getSheet(xlSheet);
+            if (sheet == null) {
                 System.err.println("Sheet \"" + xlSheet + "\" not found.");
                 return -1;
             }
-            row = ws.getRow(rowNum);
+            row = sheet.getRow(rowNum);
             return row.getLastCellNum();
 
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
         }finally {
-            wb.close();
+            workbook.close();
             fi.close();
         }
 
@@ -78,13 +78,13 @@ public class ExcelUtilities {
 
         try{
             fi = new FileInputStream(path);
-            wb = new XSSFWorkbook(fi);
-            ws = wb.getSheet(xlSheet);
-            if (ws == null) {
+            workbook = new XSSFWorkbook(fi);
+            sheet = workbook.getSheet(xlSheet);
+            if (sheet == null) {
                 System.err.println("Sheet \"" + xlSheet + "\" not found.");
                 return null;
             }
-            row = ws.getRow(rowNum);
+            row = sheet.getRow(rowNum);
             cell = row.getCell(colNum);
             // meth 1 : return cell.toString()
             // meth 2 :
@@ -95,7 +95,7 @@ public class ExcelUtilities {
             e.printStackTrace();
             return null;
         }finally {
-            wb.close();
+            workbook.close();
             fi.close();
         }
     }
@@ -104,21 +104,21 @@ public class ExcelUtilities {
 
         try{
             fi = new FileInputStream(path);
-            wb = new XSSFWorkbook(fi);
-            ws = wb.getSheet(xlSheet);
-            if (ws == null) {
+            workbook = new XSSFWorkbook(fi);
+            sheet = workbook.getSheet(xlSheet);
+            if (sheet == null) {
                 System.err.println("Sheet \"" + xlSheet + "\" not found.");
             }
-            row = ws.getRow(rowNum);
+            row = sheet.getRow(rowNum);
             cell = row.createCell(colNum);
             cell.setCellValue(data);
             fo = new FileOutputStream(path);
-            wb.write(fo);
+            workbook.write(fo);
 
         }catch (IOException e){
             e.printStackTrace();
         }finally {
-            wb.close();
+            workbook.close();
             fi.close();
             fo.close();
         }
@@ -129,27 +129,27 @@ public class ExcelUtilities {
         try{
 
             fi = new FileInputStream(path);
-            wb = new XSSFWorkbook(fi);
-            ws = wb.getSheet(xlSheet);
-            if (ws == null) {
+            workbook = new XSSFWorkbook(fi);
+            sheet = workbook.getSheet(xlSheet);
+            if (sheet == null) {
                 System.err.println("Sheet \"" + xlSheet + "\" not found.");
             }
-            row = ws.getRow(rowNum);
+            row = sheet.getRow(rowNum);
             cell = row.getCell(colNum);
 
-            style = wb.createCellStyle();
+            style = workbook.createCellStyle();
             style.setFillForegroundColor(IndexedColors.GREEN.getIndex());
             style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
             cell.setCellStyle(style);
 
             fo = new FileOutputStream(path);
-            wb.write(fo);
+            workbook.write(fo);
 
         }catch (IOException e){
             e.printStackTrace();
         }finally {
-            wb.close();
+            workbook.close();
             fi.close();
             fo.close();
         }
@@ -161,27 +161,27 @@ public class ExcelUtilities {
         try{
 
             fi = new FileInputStream(path);
-            wb = new XSSFWorkbook(fi);
-            ws = wb.getSheet(xlSheet);
-            if (ws == null) {
+            workbook = new XSSFWorkbook(fi);
+            sheet = workbook.getSheet(xlSheet);
+            if (sheet == null) {
                 System.err.println("Sheet \"" + xlSheet + "\" not found.");
             }
-            row = ws.getRow(rowNum);
+            row = sheet.getRow(rowNum);
             cell = row.getCell(colNum);
 
-            style = wb.createCellStyle();
+            style = workbook.createCellStyle();
             style.setFillForegroundColor(IndexedColors.RED.getIndex());
             style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
             cell.setCellStyle(style);
 
             fo = new FileOutputStream(path);
-            wb.write(fo);
+            workbook.write(fo);
 
         }catch (IOException e){
             e.printStackTrace();
         }finally {
-            wb.close();
+            workbook.close();
             fi.close();
             fo.close();
         }

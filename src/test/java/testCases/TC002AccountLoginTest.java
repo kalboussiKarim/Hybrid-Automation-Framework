@@ -10,7 +10,7 @@ import pageObjects.MyAccountPage;
 
 public class TC002AccountLoginTest extends BaseTest {
 
-    @Test
+    @Test(groups={"Sanity","Master"})
     public void test_account_login(){
 
         try {
