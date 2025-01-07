@@ -11,17 +11,28 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 public class BaseTest {
 
     public WebDriver driver;
     public Logger logger; // make sure it is from " org.apache.logging.log4j.Logger "
+    public Properties properties;
 
 
     @BeforeClass
     @Parameters({"os","browser"})
-    public void setUp(String os, String browser){
+    public void setUp(String os, String browser) throws IOException {
+        //Loading config.properties file
+        FileReader file = new FileReader("./src//test//resources//config.properties ");
+        properties = new Properties();
+        properties.load(file);
+
+
         logger = LogManager.getLogger(this.getClass());
         switch (browser.toLowerCase()){
             case "chrome" : driver = new ChromeDriver(); break;
@@ -33,7 +44,7 @@ public class BaseTest {
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.get("http://localhost/opencart-4.0.2.3/upload/index.php");
+        driver.get(properties.getProperty("appURL"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
