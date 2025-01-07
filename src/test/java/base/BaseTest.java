@@ -1,6 +1,8 @@
 package base;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -11,9 +13,11 @@ import java.time.Duration;
 public class BaseTest {
 
     public WebDriver driver;
+    public Logger logger; // make sure it is from " org.apache.logging.log4j.Logger "
 
     @BeforeClass
     public void setUp(){
+        logger = LogManager.getLogger(this.getClass());
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();

@@ -12,21 +12,34 @@ public class TC001AccountRegistrationTest extends BaseTest {
     @Test
     public void test_account_registration(){
 
-        HomePage homePage = new HomePage(driver);
-        homePage.clickMyAccountNavItem();
-        homePage.clickRegister();
-        String firstname = randomString(5);
-        String lastname = randomString(5);
-        AccountRegistrationPage accountRegistrationPage = new AccountRegistrationPage(driver);
-        accountRegistrationPage.setTxtFirstname(firstname);
-        accountRegistrationPage.setTxtLastname(lastname);
-        accountRegistrationPage.setTxtEmail(firstname+"."+lastname+"@gmail.com");
-        accountRegistrationPage.setTxtPassword(firstname);
-        accountRegistrationPage.checkPrivacyPolicy();
-        accountRegistrationPage.clickRegisterButton();
-        String expectedMessage = "Your Account Has Been Created!";
-        String actualMessage = accountRegistrationPage.getMsgConfirmation();
-        Assert.assertEquals(expectedMessage,actualMessage);
+        try {
+            logger.info("******** Starting TC001AccountRegistrationTest ********");
+            HomePage homePage = new HomePage(driver);
+            homePage.clickMyAccountNavItem();
+            logger.info("Clicked on MyAccount Link");
+            homePage.clickRegister();
+            logger.info("Clicked on Register Link");
+            String firstname = randomString(5);
+            String lastname = randomString(5);
+            AccountRegistrationPage accountRegistrationPage = new AccountRegistrationPage(driver);
+            logger.info("Providing customer details...");
+            accountRegistrationPage.setTxtFirstname(firstname);
+            accountRegistrationPage.setTxtLastname(lastname);
+            accountRegistrationPage.setTxtEmail(firstname+"."+lastname+"@gmail.com");
+            accountRegistrationPage.setTxtPassword(firstname);
+            accountRegistrationPage.checkPrivacyPolicy();
+            accountRegistrationPage.clickRegisterButton();
+            String expectedMessage = "Your Account Has Been Created!";
+            String actualMessage = accountRegistrationPage.getMsgConfirmation();
+            logger.info("Validating expected message...");
+            Assert.assertEquals(expectedMessage,actualMessage);
+        }catch (Exception e){
+            logger.error("Test Failed...");
+            logger.debug("Debug logs...");
+            Assert.fail();
+        }
+        logger.info("******** Finished TC001AccountRegistrationTest ********");
+
     }
 
 }
