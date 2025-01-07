@@ -10,7 +10,7 @@ import utilities.DataProviders;
 
 public class TC003AccountLoginDDT extends BaseTest {
 
-    @Test(dataProvider = "LoginData",dataProviderClass = DataProviders.class,groups={"Datadriven"})
+    @Test(dataProvider = "LoginData",dataProviderClass = DataProviders.class,groups={"DataDriven"})
     public void test_account_login_DDT(String email, String password, String expectedResult ){
 
         boolean isHeaderDisplayed;

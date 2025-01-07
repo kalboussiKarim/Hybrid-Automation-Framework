@@ -9,7 +9,7 @@ import pageObjects.HomePage;
 
 public class TC001AccountRegistrationTest extends BaseTest {
 
-    @Test(groups={"Regression","master"})
+    @Test(groups={"Regression","Master"})
     public void test_account_registration(){
 
         try {

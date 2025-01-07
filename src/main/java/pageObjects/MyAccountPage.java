@@ -24,7 +24,6 @@ public class MyAccountPage extends BasePage {
     }
 
     public void clickLogoutLink(){
-        //linkLogout.click();
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", linkLogout);
     }
 }

@@ -48,7 +48,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
-    @AfterClass(groups={"Sanity","Regression","Datadriven","Master"})
+    @AfterClass(groups={"Sanity","Regression","DataDriven","Master"})
     public void tearDown(){
         driver.quit();
     }
