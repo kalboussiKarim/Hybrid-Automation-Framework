@@ -76,7 +76,7 @@ public class BaseTest {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
 
-        String targetFilePath = System.getProperty("user.dir")+"\\screenshots\\" + name + "_" + timeStamp;
+        String targetFilePath = System.getProperty("user.dir")+"\\screenshots\\" + name + "_" + timeStamp+".png";
         File targetFile = new File(targetFilePath);
 
         sourceFile.renameTo(targetFile);

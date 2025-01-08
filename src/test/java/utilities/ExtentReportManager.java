@@ -11,6 +11,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -88,5 +90,14 @@ public class ExtentReportManager implements ITestListener {
 
     public void onFinish(ITestContext context) {
         extent.flush();
+
+        String pathOfExtentReport = System.getProperty("user.dir")+"\\reports\\"+repName;
+        File extentReport = new File(pathOfExtentReport);
+
+        try {
+            Desktop.getDesktop().browse(extentReport.toURI());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
