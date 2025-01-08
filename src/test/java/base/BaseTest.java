@@ -24,7 +24,7 @@ import java.util.Properties;
 
 public class BaseTest {
 
-    public WebDriver driver;
+    public static WebDriver driver;
     public Logger logger; // make sure it is from " org.apache.logging.log4j.Logger "
     public Properties properties;
 
