@@ -70,9 +70,7 @@ public class BaseTest {
                 default:
                     System.out.println("Invalid browser name"); return; // return te exit the execution
             }
-            System.out.println("check1");
             driver = new RemoteWebDriver(new URI("http://localhost:4444/wd/hub").toURL(),capabilities);
-            System.out.println("check2");
 
         }else if (properties.getProperty("execution_env").equalsIgnoreCase("local")){
             switch (browser.toLowerCase()){
@@ -85,9 +83,7 @@ public class BaseTest {
         }
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        System.out.println("check3");
         driver.get(properties.getProperty("appURL"));
-        System.out.println("check4");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
     }
 
