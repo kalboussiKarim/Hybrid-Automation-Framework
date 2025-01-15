@@ -5,8 +5,9 @@
         <listener class-name="utilities.ExtentReportManager"/>
     </listeners>
 
-    <test name="main">
-        <parameter name="os" value="linux"/>
+
+    <test name="Linux-Chrome">
+        <parameter name="os" value="Linux"/>
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="testCases.TC001AccountRegistrationTest"/>
@@ -14,4 +15,16 @@
             <!--class name="testCases.TC003AccountLoginDDT"/-->
         </classes>
     </test>
+
+    <!--
+    <test name="Linux-FireFox">
+        <parameter name="os" value="Linux"/>
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="testCases.TC001AccountRegistrationTest"/>
+            <class name="testCases.TC002AccountLoginTest"/>
+
+        </classes>
+    </test>
+    -->
 </suite>

@@ -19,6 +19,8 @@ import org.testng.annotations.Parameters;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -34,7 +36,7 @@ public class BaseTest {
 
     @BeforeClass(groups={"Sanity","Regression","Master"})
     @Parameters({"os","browser"})
-    public void setUp(String os, String browser) throws IOException {
+    public void setUp(String os, String browser) throws IOException, URISyntaxException {
         //Loading config.properties file
         FileReader file = new FileReader("./src//test//resources//config.properties ");
         properties = new Properties();
@@ -49,8 +51,13 @@ public class BaseTest {
             if(os.equalsIgnoreCase("windows")){
                 capabilities.setPlatform(Platform.WIN10);
 
+            }else if (os.equalsIgnoreCase("linux")) {
+                capabilities.setPlatform(Platform.LINUX);
+                System.out.println("LINUX Karim");
+
             }else if (os.equalsIgnoreCase("mac")) {
                 capabilities.setPlatform(Platform.MAC);
+
             }else {
                 System.out.println("No matching OS");
                 return;
@@ -64,7 +71,7 @@ public class BaseTest {
                     System.out.println("Invalid browser name"); return; // return te exit the execution
             }
 
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+            driver = new RemoteWebDriver(new URI("http://localhost:4444/wd/hub").toURL(),capabilities);
 
         }else if (properties.getProperty("execution_env").equalsIgnoreCase("local")){
             switch (browser.toLowerCase()){
@@ -78,7 +85,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.get(properties.getProperty("appURL"));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterClass(groups={"Sanity","Regression","Master"})
