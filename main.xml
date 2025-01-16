@@ -6,7 +6,7 @@
     </listeners>
 
     <test name="main">
-        <parameter name="os" value="windows"/>
+        <parameter name="os" value="linux"/>
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="testCases.TC001AccountRegistrationTest"/>
