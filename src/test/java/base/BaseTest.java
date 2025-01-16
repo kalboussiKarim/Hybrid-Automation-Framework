@@ -53,7 +53,6 @@ public class BaseTest {
 
             }else if (os.equalsIgnoreCase("linux")) {
                 capabilities.setPlatform(Platform.LINUX);
-                System.out.println("LINUX Karim");
 
             }else if (os.equalsIgnoreCase("mac")) {
                 capabilities.setPlatform(Platform.MAC);
